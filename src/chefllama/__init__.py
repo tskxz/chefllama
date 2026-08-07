@@ -98,7 +98,7 @@ def main() -> None:
     # Interactive chat loop
     print("Bem-vindo ao ChefLLama - O teu Chef Pessoal")
     print("Indica os ingredientes disponiveis no teu frigorifico ou despensa,")
-    print("ou escreve 'imagem <caminho>' para analisar uma foto com LLaVA.")
+    print("ou escreve 'imagem <caminho>' para analisar a foto")
     print("Escreve 'sair' ou 'q' para terminar.\n")
 
     while True:
