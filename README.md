@@ -13,7 +13,7 @@ O objetivo do ChefLLama é sugerir receitas práticas, criativas e sem desperdí
 - Modelos Locais com Ollama: Utiliza os modelos llama3.2 e llava localmente com execução rápida e privada.
 - Memória de Conversação (LangGraph): Mantém o contexto de conversação em múltiplos turnos para responder a perguntas de seguimento, instruções detalhadas ou adaptações de receitas.
 - Interface CLI Interativa: Permite conversar diretamente no terminal ou executar consultas rápidas por argumento.
-- Foco no Aproveitamento Integral: Minimiza o desperdício alimentar aproveitando sobras e ingredientes existentes.
+- Foco no Aproveitamento Integral: Minimiza o desperdício alimentar aproveitando ingredientes existentes e sobras de refeições anteriores.
 
 ---
 
