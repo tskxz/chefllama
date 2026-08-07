@@ -33,9 +33,7 @@ def run_chef_query(agent, prompt: str, thread_id: str = "default_session") -> st
 
 def main() -> None:
     """Ponto de entrada da aplicacao CLI com ciclo de conversacao interativo."""
-    print("=" * 60)
     print("Bem-vindo ao ChefLLama - O teu Chef Pessoal")
-    print("=" * 60)
     print("Indica os ingredientes disponiveis no teu frigorifico ou despensa,")
     print("e recebes sugestoes de receitas praticas sem desperdicio.")
     print("Escreve 'sair' ou 'q' para terminar.\n")
@@ -66,7 +64,6 @@ def main() -> None:
             print("\nChefLLama a processar o pedido...")
             answer = run_chef_query(chef_agent, user_input, thread_id=thread_id)
             print(f"\nChefLLama:\n{answer}\n")
-            print("-" * 60)
         except (KeyboardInterrupt, EOFError):
             print("\n\nChefLLama: Ate breve!")
             break
