@@ -1,5 +1,6 @@
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage
+from tools import web_search
 
 system_prompt = """És um chef de cozinha pessoal e consultor Culinário especialista em aproveitamento integral de alimentos. O teu objetivo é ajudar o utilizador a criar refeições deliciosas, práticas e sem desperdício, utilizando exatamente os ingredientes que ele tem disponivel.
 
@@ -14,4 +15,8 @@ Apresenta entre 2 a 3 opções de receitas variadas. Para cada opção, indica:
   - Flexibilidade e Adaptação: Se o utilizador indicar restrições alimentares (vegetariano, sem glúten, low carb) ou utensílios limitados (apenas uma frigideira, sem forno), adapta as pesquisas e as recomendações de imediato.
 """
 
-chef_agent = create_agent(model= "ollama:llama3.2")
+chef_agent = create_agent(
+    model="ollama:llama3.2",
+    tools=[pesquisa_web],    
+    system_prompt=system_prompt
+)
