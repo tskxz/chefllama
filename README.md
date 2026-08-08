@@ -3,13 +3,11 @@
 </p>
 
 <h1 align="center">ChefLLama</h1>
----
 
 O ChefLLama é um assistente IA pessoal construído com LangChain, Llama 3.2, LLaVA e pesquisa na web em tempo real através da API Tavily.
 
 O objetivo do ChefLLama é sugerir receitas práticas, criativas e sem desperdício com base nos ingredientes que tens disponíveis no teu frigorífico ou despensa, quer através de texto ou pela análise direta de fotografias.
 
----
 
 ## Funcionalidades
 
