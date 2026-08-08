@@ -1,4 +1,9 @@
-# ChefLLama
+<p align="center">
+  <img src="img/chef_llama.png" alt="ChefLLama" width="220" />
+</p>
+
+<h1 align="center">ChefLLama</h1>
+---
 
 O ChefLLama é um assistente IA pessoal construído com LangChain, Llama 3.2, LLaVA e pesquisa na web em tempo real através da API Tavily.
 
