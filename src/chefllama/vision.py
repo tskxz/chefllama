@@ -3,6 +3,8 @@ import os
 from typing import Tuple
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
+from .config import DEFAULT_VISION_MODEL
+from .prompts import VISION_ANALYSIS_PROMPT
 
 def get_image_mime_type(file_path: str) -> str:
     """Detect image MIME type based on file extension."""
@@ -17,8 +19,8 @@ def get_image_mime_type(file_path: str) -> str:
 
 def encode_image_file(image_path: str) -> Tuple[str, str]:
     """Read local image file and return base64 string and MIME type."""
-    if not os.path.exists(image_path):
-        raise FileNotFoundError(f"Ficheiro de imagem nao encontrado: {image_path}")
+    if not os.path.isfile(image_path):
+        raise FileNotFoundError(f"Ficheiro de imagem nao encontrado ou invalido: {image_path}")
     
     mime_type = get_image_mime_type(image_path)
     with open(image_path, "rb") as image_file:
@@ -27,18 +29,12 @@ def encode_image_file(image_path: str) -> Tuple[str, str]:
 
 def analyze_fridge_image(
     image_path: str,
-    model: str = "llava:latest",
+    model: str = DEFAULT_VISION_MODEL,
     custom_prompt: str = ""
 ) -> str:
     """Analisa uma foto do frigorifico/despensa usando o modelo LLaVA e extrai os ingredientes identificados."""
     img_b64, mime_type = encode_image_file(image_path)
-    
-    prompt_text = (
-        custom_prompt or
-        "Examina detalhadamente esta foto do interior de um frigorifico ou despensa. "
-        "Lista todos os ingredientes, alimentos, sobras e condimentos visiveis que identificares. "
-        "Responde em Portugues de Portugal (PT-PT) de forma estruturada e concisa, sem emojis."
-    )
+    prompt_text = custom_prompt or VISION_ANALYSIS_PROMPT
     
     message = HumanMessage(content=[
         {"type": "text", "text": prompt_text},
