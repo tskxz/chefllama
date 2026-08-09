@@ -2,9 +2,9 @@ from typing import Optional
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
 from langgraph.checkpoint.memory import InMemorySaver
-from .config import DEFAULT_CHAT_MODEL, DEFAULT_THREAD_ID
-from .prompts import CHEF_SYSTEM_PROMPT
-from .tools.web_search import pesquisa_web
+from chefllama.config import DEFAULT_CHAT_MODEL, DEFAULT_THREAD_ID
+from chefllama.prompts import CHEF_SYSTEM_PROMPT
+from chefllama.tools.web_search import pesquisa_web
 
 def create_chef_agent(
     model: str = DEFAULT_CHAT_MODEL,

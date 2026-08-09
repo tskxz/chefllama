@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    "."
+  ],
+  "graphs": {
+    "agent": "./src/chefllama/agent.py:chef_agent"
+  },
+  "env": ".env"
+}

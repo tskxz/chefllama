@@ -1,6 +1,6 @@
-from .agent import run_chef_query
-from .config import DEFAULT_THREAD_ID
-from .vision import analyze_fridge_image
+from chefllama.agent import run_chef_query
+from chefllama.config import DEFAULT_THREAD_ID
+from chefllama.vision import analyze_fridge_image
 
 def process_fridge_image_and_suggest(
     agent,
