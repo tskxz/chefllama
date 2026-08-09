@@ -3,8 +3,8 @@ import os
 from typing import Tuple
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
-from .config import DEFAULT_VISION_MODEL
-from .prompts import VISION_ANALYSIS_PROMPT
+from chefllama.config import DEFAULT_VISION_MODEL
+from chefllama.prompts import VISION_ANALYSIS_PROMPT
 
 def get_image_mime_type(file_path: str) -> str:
     """Detect image MIME type based on file extension."""

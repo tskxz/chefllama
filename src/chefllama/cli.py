@@ -1,9 +1,9 @@
 import argparse
 import os
 import sys
-from .agent import chef_agent, run_chef_query
-from .config import DEFAULT_THREAD_ID
-from .service import process_fridge_image_and_suggest
+from chefllama.agent import chef_agent, run_chef_query
+from chefllama.config import DEFAULT_THREAD_ID
+from chefllama.service import process_fridge_image_and_suggest
 
 # Ensure proper standard stream encoding across operating systems
 if hasattr(sys.stdout, "reconfigure"):
