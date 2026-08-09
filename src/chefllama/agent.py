@@ -1,25 +1,24 @@
-from typing import Optional
+from typing import Optional, Any
 from langchain.agents import create_agent
 from langchain_core.messages import HumanMessage
-from langgraph.checkpoint.memory import InMemorySaver
 from chefllama.config import DEFAULT_CHAT_MODEL, DEFAULT_THREAD_ID
 from chefllama.prompts import CHEF_SYSTEM_PROMPT
 from chefllama.tools.web_search import pesquisa_web
 
 def create_chef_agent(
     model: str = DEFAULT_CHAT_MODEL,
-    checkpointer: Optional[InMemorySaver] = None
+    checkpointer: Optional[Any] = None
 ):
-    """Cria e compila o grafo do agente ChefLLama com ferramentas e suporte a memoria."""
-    if checkpointer is None:
-        checkpointer = InMemorySaver()
-    
-    return create_agent(
-        model=model,
-        tools=[pesquisa_web],
-        system_prompt=CHEF_SYSTEM_PROMPT,
-        checkpointer=checkpointer
-    )
+    """Cria e compila o grafo do agente ChefLLama compativel com LangGraph Server e CLI."""
+    kwargs = {
+        "model": model,
+        "tools": [pesquisa_web],
+        "system_prompt": CHEF_SYSTEM_PROMPT,
+    }
+    if checkpointer is not None:
+        kwargs["checkpointer"] = checkpointer
+
+    return create_agent(**kwargs)
 
 chef_agent = create_chef_agent()
 
